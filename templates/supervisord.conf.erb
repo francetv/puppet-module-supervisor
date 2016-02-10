@@ -44,6 +44,10 @@ supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 <% if @enable_inet_server -%>
 [supervisorctl]
 serverurl=http://<%= @inet_server_port %>
+<% if @inet_server_user && @inet_server_pass -%>
+username=<%= @inet_server_user %>
+password=<%= @inet_server_pass %>
+<% end -%>
 <% else -%>
 [supervisorctl]
 serverurl=unix://<%= @unix_server_file %>
